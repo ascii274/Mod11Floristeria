@@ -4,6 +4,8 @@ package com.floristeria.model.domain;
  * 
  * @author Carles
  * @author Joel
+ * 
+ * @branch joel_01 
  *
  */
 
