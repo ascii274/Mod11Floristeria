@@ -16,7 +16,12 @@ public class Flor extends Productes {
 		this.color = color;
 	}
 	
-	
+	/**
+	 * Mostra les dades de la flor
+	 */
+	public String toString() {
+		return "Flor [ Color:" + color + " , preu:" + super.getPreu() + " euros]";
+	}
 	
 	
 }

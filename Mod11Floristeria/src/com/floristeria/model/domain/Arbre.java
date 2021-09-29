@@ -3,7 +3,7 @@ package com.floristeria.model.domain;
 public class Arbre extends Productes {
 	private int alzada;
 
-	public Arbre(Double preu, int alzada) {
+	public Arbre(double preu, int alzada) {
 		super(preu);
 		this.alzada = alzada;
 	}
@@ -20,6 +20,6 @@ public class Arbre extends Productes {
 	 * Mostra les dades del arbre
 	 */
 	public String toString() {
-		return "Arbre[ Alçada:" + alzada + " , preu:" + super.getPreu() + "]";
+		return "Arbre [ Alçada:" + alzada + " cm , preu:" + super.getPreu() + " euros]";
 	}
 }

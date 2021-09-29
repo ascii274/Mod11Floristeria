@@ -7,5 +7,9 @@ public class Floristeria {
 		this.nom = nom;
 	}
 	
+	public String toString() {
+		return "Nom floristeria: " + nom;
+	}
+	
 
 }

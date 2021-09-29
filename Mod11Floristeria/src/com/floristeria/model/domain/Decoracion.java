@@ -25,6 +25,11 @@ public class Decoracion extends Productes {
 		this.tipusMaterial = tipusMaterial;
 	}
 	
-	
+	/**
+	 * Mostra les dades del arbre
+	 */
+	public String toString() {
+		return "Decoració [ Material:" +tipusMaterial + " , preu:" + super.getPreu() + " euros]";
+	}
 	
 }
