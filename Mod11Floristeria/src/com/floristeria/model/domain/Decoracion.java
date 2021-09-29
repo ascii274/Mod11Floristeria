@@ -1,5 +1,12 @@
 package com.floristeria.model.domain;
 
+/**
+ * 
+ * @author Carles
+ * @author Joel
+ *
+ */
+
 public class Decoracion extends Productes {
 	private TipusMaterial tipusMaterial;
 
