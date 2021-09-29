@@ -35,11 +35,11 @@ public class ViewMain extends JFrame {
 		setVisible(true);
 
 		// Pintem el Panell de Dades
-		viewDades = new ViewDades();
+		viewDades = new ViewDades(floristeria);
 		this.getContentPane().add(BorderLayout.CENTER, viewDades);
 
 		// Pintem el Panell de botons
-		viewBotons = new ViewBotons();
+		viewBotons = new ViewBotons(floristeria);
 		this.getContentPane().add(BorderLayout.SOUTH, viewBotons);
 
 		// ************** Disseny Label i TextFields ************
