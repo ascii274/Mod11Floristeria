@@ -12,7 +12,7 @@ import javax.swing.text.View;
 import com.floristeria.controller.ProductesController;
 import com.floristeria.model.domain.Floristeria;
 
-public class ViewBotons extends JPanel {
+public class ViewBotons extends JPanel { 
 
 	// Creem els botons per interactuar amb el Coet
 	JButton addArbre = new JButton("Afegir Arbre");

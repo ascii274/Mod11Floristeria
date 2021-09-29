@@ -2,7 +2,7 @@ package com.floristeria.view;
 
 import javax.swing.JOptionPane;
 
-public class Utilities {
+public class Utilities { 
 
 	/**
 	 * Funció per validar si un text es un númeric o no

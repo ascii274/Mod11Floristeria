@@ -19,7 +19,7 @@ public class ViewFloristeria extends JFrame {
 	private JButton afegirFloristeria = new JButton("Crear Floristeria");
 
 	public ViewFloristeria() {
-		
+		 
 		
 		this.setBounds(100, 100, 500, 500);
 		setTitle("Floristeria");

@@ -22,7 +22,7 @@ public class ViewMain extends JFrame {
 	private JButton floristeria = new JButton("Floristeria");
 	private ViewBotons viewBotons;
 	private ViewDades viewDades;
-
+ 
 	public ViewMain(Floristeria floristeria) {
 
 		// ********* Disseny del Frame **************

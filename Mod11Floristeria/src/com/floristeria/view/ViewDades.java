@@ -10,7 +10,7 @@ import javax.swing.SwingConstants;
 import com.floristeria.model.domain.Floristeria;
 
 public class ViewDades extends JPanel {
-
+ 
 	Floristeria floristeria;
 
 	public ViewDades(Floristeria floristeria) {
