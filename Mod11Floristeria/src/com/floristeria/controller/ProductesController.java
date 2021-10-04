@@ -151,11 +151,13 @@ public class ProductesController {
 		List<Producte> productes = productesRepository.getAllProductes();
 		double resultat =0;
 		for(Producte p:productes) {
-			resultat = p.getPreu() * p.getStock();			
+			resultat += p.getPreu() * p.getStock();			
 		}
 		return resultat;
 		//return productes.stream().mapToInt(Producte::getStock).sum(); // solo suma
 	}	
+	
+	
 	
 	
 	// pintar per pantalla stock i quantitats	
@@ -170,12 +172,11 @@ public class ProductesController {
 	 */
 	public double mostraValorTotalFloristeria() {
 		List<Producte> productes = productesRepository.getAllProductes();
-//		Producte producte;
-//		InterfazFuncional interfazFuncional = (x,y)-> producte.getStock() * producte.getPreu();
-	//	return productesRepository.getAllProductes().size(); // return int
-		return productes.stream().mapToDouble(Producte :: getPreu ) .sum();
-		
-		
+		double resultat =0;
+		for(Producte p:productes) {
+			resultat += p.getPreu() * p.getStock();			
+		}
+		return resultat;		
 	}
 	
 	// ###########################	
