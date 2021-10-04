@@ -27,7 +27,7 @@ public class ViewMain extends JFrame {
 	public ViewMain(Floristeria floristeria, ProductesController productesController) {
 
 		// ********* Disseny del Frame **************
-		this.setBounds(100, 100, 1000, 600);
+		this.setBounds(100, 100, 1400, 600);
 		//posa el frame al centre de la pantalla
 		this.setLocationRelativeTo(null);
 		setTitle("Gestió Floristeria" + floristeria);
