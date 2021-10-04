@@ -9,6 +9,8 @@ import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 import java.util.stream.LongStream;
 
+import javax.swing.JLabel;
+
 import com.floristeria.model.domain.Arbre;
 import com.floristeria.model.domain.Decoracion;
 import com.floristeria.model.domain.Flor;
@@ -16,6 +18,7 @@ import com.floristeria.model.domain.InterfazFuncional;
 import com.floristeria.model.domain.Producte;
 import com.floristeria.model.domain.TipusMaterial;
 import com.floristeria.model.persistance.ProductesRepository;
+
 
 public class ProductesController {
 	
@@ -181,5 +184,26 @@ public class ProductesController {
 	}
 
 	
+	/**
+	 * 
+	 * - Mostrem tots el productes
+	 * [CFV] Versió que retorna un String amb tots els productes 
+	 */
+	public String obtenirStock_toString() {
+		String resultat = "";
+		
+		List<Producte> productes = productesRepository.getAllProductes();
+		
+		for (Producte m : productes) {
+			resultat += m.toString()+ "\n";
+		}
+		return resultat;
+		
 
+
+	}
+	
+
+	
+	
 }

@@ -3,10 +3,6 @@ package com.floristeria.controller;
 import java.util.List;
 import java.util.Objects;
 import java.util.Scanner;
-import java.util.function.Predicate;
-
-import javax.swing.text.html.HTMLDocument.HTMLReader.PreAction;
-
 import com.floristeria.model.domain.Producte;
 import com.floristeria.model.domain.Ticket;
 import com.floristeria.model.persistance.TicketRepository;

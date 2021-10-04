@@ -8,8 +8,7 @@ public class Arbre extends Producte {
 	public Arbre(double preu, int alzada, int stock) {		
 		super(preu, stock);
 		this.idProducte = super.getIdProducte();
-		this.alzada = alzada;
-		
+		this.alzada = alzada;		
 	}
 
 	public int getAlzada() {
