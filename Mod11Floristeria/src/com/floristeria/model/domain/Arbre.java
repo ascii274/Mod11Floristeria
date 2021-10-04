@@ -1,11 +1,15 @@
 package com.floristeria.model.domain;
 
-public class Arbre extends Productes {
-	private int alzada;
+public class Arbre extends Producte {
+	private  int idProducte;
+	private int alzada;	
+	
 
-	public Arbre(Double preu, int alzada) {
-		super(preu);
+	public Arbre(double preu, int alzada, int stock) {		
+		super(preu, stock);
+		this.idProducte = super.getIdProducte();
 		this.alzada = alzada;
+		
 	}
 
 	public int getAlzada() {
@@ -20,6 +24,7 @@ public class Arbre extends Productes {
 	 * Mostra les dades del arbre
 	 */
 	public String toString() {
-		return "Arbre[ Alçada:" + alzada + " , preu:" + super.getPreu() + "]";
+		return "Arbre [ID:" + idProducte + " ,Alçada:" + alzada + " cm, Preu:" 
+						+ super.getPreu() + " euros, Stock:" + super.getStock() + "]";
 	}
 }

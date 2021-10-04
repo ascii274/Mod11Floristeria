@@ -4,15 +4,22 @@ package com.floristeria.model.domain;
  * 
  * @author Carles
  * @author Joel
+ * 
+ * @branch joel_01 
  *
  */
 
-public class Decoracion extends Productes {
+public class Decoracion extends Producte {
+	
+	private  int idProducte;
 	private TipusMaterial tipusMaterial;
+	private int stock;
 
-	public Decoracion(double preu, TipusMaterial tipusMaterial) {
-		super(preu);
+	public Decoracion(double preu, TipusMaterial tipusMaterial, int stock) {
+		super(preu, stock);
+		this.idProducte = super.getIdProducte();
 		this.tipusMaterial = tipusMaterial;
+		this.stock = stock;
 	}
 
 	public TipusMaterial getTipusMaterial() {
@@ -23,6 +30,14 @@ public class Decoracion extends Productes {
 		this.tipusMaterial = tipusMaterial;
 	}
 	
+	
+	/**
+	 * Mostra les dades del arbre
+	 */
+	public String toString() {
+		return "Decoració [ID:" + idProducte + " ,Material:" +tipusMaterial + " ,Preu:" 
+						+ super.getPreu() + " euros, Stock:" + super.getStock() + "]";
+	}
 	
 	
 }
