@@ -134,18 +134,27 @@ public class ProductesController {
 	
 	// pintar per pantalla stock amb quatntitas
 	
-	public void mostraStocAmbQuantitats() {
-		List<Producte> productes = productesRepository.getAllProductes();
-		
+	public String mostraStocAmbQuantitats() {
+		String resultat = "";
+		List<Producte> productes = productesRepository.getAllProductes();		
+		for (Producte p : productes) {
+			resultat += p.toString()+ "\n";
+		}
+		return resultat;		
 	}
 	
 	/**
 	 * - Printar per pantalla valor total de la floristeria. 
 	 * @return
 	 */
-	public int mostraValorTotalFlristeria() {
-		List<Producte> productes = productesRepository.getAllProductes(); 
-		return productes.stream().mapToInt(Producte::getStock).sum();				
+	public double mostraValorTotalFlristeria() {
+		List<Producte> productes = productesRepository.getAllProductes();
+		double resultat =0;
+		for(Producte p:productes) {
+			resultat = p.getPreu() * p.getStock();			
+		}
+		return resultat;
+		//return productes.stream().mapToInt(Producte::getStock).sum(); // solo suma
 	}	
 	
 	
