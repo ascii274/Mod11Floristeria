@@ -28,7 +28,10 @@ public class Main {
 		try {
 			// alta floristeria			
 			floristeria = new Floristeria("Floristeria Java");
+			// alta floristeria per InputDialog
+			floristeria = crearFloristeria("Floristeria Java");
 			System.out.println(floristeria.toString());
+			
 
 			// [CFV] Nova versió que crida a la Vista MAin per fer la part visual
 			// Creem la pantalla o Frame principal
@@ -42,4 +45,16 @@ public class Main {
 	}
 	
 
+	
+	private static Floristeria crearFloristeria(String nomFloristeriaIn) {
+		String message = "Introdueix el nom de la Floristeria: " + "\n";
+		String nomFloristeria;
+
+		nomFloristeria = JOptionPane.showInputDialog(null, message, nomFloristeriaIn);
+
+		return new Floristeria(nomFloristeria);
+		
+	}
+	
+	
 }

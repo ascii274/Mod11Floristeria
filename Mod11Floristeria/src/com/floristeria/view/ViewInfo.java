@@ -37,28 +37,28 @@ public class ViewInfo extends javax.swing.JPanel {
 		JLabel nomFloristeria = new JLabel("" + floristeria.toString(), SwingConstants.CENTER);
 		nomFloristeria.setFont(miFuente);
 		nomFloristeria.setForeground(Color.BLACK);
-		nomFloristeria.setBounds(20, 10, 800, 50);
+		nomFloristeria.setBounds(20, 10, 1250, 50);
 		this.add(nomFloristeria);
 
 		// Creem un label per simular el System.out.println() explican que hem fet
 		infoFromBotons = new JLabel("Text From botons curt", SwingConstants.LEFT);
 		infoFromBotons.setFont(miFuente);
 		infoFromBotons.setForeground(Color.BLUE);
-		infoFromBotons.setBounds(20, 40, 800, 50);
+		infoFromBotons.setBounds(20, 40, 1250, 50);
 		this.add(infoFromBotons);
 
 		// Creem un camp Texte Multilinia per imprimir el Stock
 		infoProducte = new JTextArea("Impresio Stocks", 10, 0);
 		infoProducte.setFont(miFuente);
 		infoProducte.setForeground(Color.BLACK);
-		infoProducte.setBounds(20, 100, 800, 300);
+		infoProducte.setBounds(20, 100, 1250, 340);
 		this.add(infoProducte);
 
 		// Creem un lable per mostrar els erors
-		infoFromBotonsError = new JLabel("Text error", SwingConstants.LEFT);
+		infoFromBotonsError = new JLabel("Text error", SwingConstants.CENTER);
 		infoFromBotonsError.setFont(miFuente);
 		infoFromBotonsError.setForeground(Color.RED);
-		infoFromBotonsError.setBounds(20, 450, 800, 50);
+		infoFromBotonsError.setBounds(20, 450, 1250, 50);
 		this.add(infoFromBotonsError);
 
 		// fem visible el marc
