@@ -6,7 +6,7 @@ import java.util.List;
 import com.floristeria.model.domain.Producte;
 
 public class ProductesRepository {
-	private static List<Producte> productes = new ArrayList<Producte>();// para que acceder desde ticketCotnroller
+	private List<Producte> productes = new ArrayList<Producte>();// para que acceder desde ticketCotnroller
 	
 	public ProductesRepository() {
 		
@@ -20,5 +20,11 @@ public class ProductesRepository {
 		if(producte==null) throw new Exception();
 		productes.add(producte);		
 	}
+
+	public void setAllProductes(List<Producte> productes) {
+		this.productes = productes;
+	}
+	
+	
 
 }

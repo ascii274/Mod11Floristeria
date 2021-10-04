@@ -73,36 +73,6 @@ public class TicketController {
 		return tickets.stream().mapToDouble(Ticket::mostraTotalTicket).sum();
 	}
 	
-	//******************** inici borrar al aplicar metode grafic *******************
-	// pregunta a l'usuari les compres que vol fer afegint productes al ticket
-		/**
-		 * - Per esborrar en aplicar mode gràfic
-		 * 
-		 * @throws Exception
-		 */
-		public void seleccioniProducte() throws Exception {
-			Scanner scanner = new Scanner(System.in);
-			Producte producte;
-
-			int codigoProducto = -1;
-			do {
-
-				System.out.println("\nSeleccioni codigo producte:");
-				codigoProducto = scanner.nextInt();
-				scanner.nextLine(); // para no saltar de linea
-				if (codigoProducto != 0) {
-					producte = productesController.buscaProductePerIdProducte(codigoProducto);
-					if (!Objects.isNull(producte)) {
-						ticket.addCompra(producte);
-					}
-				}
-			} while (codigoProducto != 0); // salir
-			ticketRepository.addTicket(ticket);
-			System.out.println("\nTicket creat, número:[" + ticket.getNumTicket() + "], fecha:" + ticket.getFecha());
-			// scanner.close();
-		}
-		
-		//******************** fi borrar al aplicar metode grafic *******************
 
 
 }

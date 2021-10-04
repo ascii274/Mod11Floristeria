@@ -1,16 +1,7 @@
 package com.floristeria.controller;
 
-import java.time.Year;
-import java.util.Iterator;
 import java.util.List;
 import java.util.function.Predicate;
-import java.util.stream.Collectors;
-import java.util.stream.DoubleStream;
-import java.util.stream.IntStream;
-import java.util.stream.LongStream;
-
-import javax.swing.JLabel;
-
 import com.floristeria.model.domain.Arbre;
 import com.floristeria.model.domain.Decoracion;
 import com.floristeria.model.domain.Flor;
@@ -82,14 +73,13 @@ public class ProductesController {
 		List<Producte> productes = productesRepository.getAllProductes();		
 //		productes.stream().forEach(v->System.out.println(v));
 //		productes.stream().forEach(System.out::println);
-		String resultat = "";//					
+		String resultat = "";//			
+		
 		for (Producte m : productes) {
 			resultat += m.toStringSenseStock() + "\n";
 		}
 		return resultat;
 	}
-	
-	
 	
 	// ###########################	
 	// #  Fi Nivell 1
@@ -98,19 +88,6 @@ public class ProductesController {
 	// ###########################
 	// # Inici Nivell 2
 	// ###########################
-	/*
-	 * Una floristeria ha de tenir un stock de cada un dels productes (arbres, flors i decoració) ->ok
-     * La floristria ara té un registre del valor total del stock que te.  ->ok
-     * Les flors tenen un color.-> ok, en el nivel 1
-     * Retirar arbre -> ok amb metode borraProducte();
-     * Retirar flor -> ok
-     * Retirar decoració  -> ok
-     * Printar per pantalla stock amb quantitats   -> ok
-     * Printar per pantalla valor total de la floristeria. 
-	 */
-	
-
-	
 	
 	/**
 	 * - Esborra producte ( arbre, flor, decoracio ) 
@@ -121,6 +98,7 @@ public class ProductesController {
 		List<Producte> productes = productesRepository.getAllProductes();
 		//productes.removeIf(existeixProducte(producte));
 		productes.removeIf( x-> x.getIdProducte()== idProducte );
+		productesRepository.setAllProductes(productes);
 	}
 	
 	/**

@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.text.View;
+
 
 import com.floristeria.controller.ProductesController;
 import com.floristeria.model.domain.Floristeria;
