@@ -50,13 +50,19 @@ public class TicketController {
 	/**
 	 * -Mostra per pantalla el tickets anteriors.
 	 */
-	public void mostrarTicketsAnteriors() {
+	public String mostrarTicketsAnteriors() {
 		List<Ticket> tickets = ticketRepository.getTickets();
+		String resultado="";
 		if (!tickets.isEmpty()) {
-			tickets.stream().forEach(v -> System.out.println(v));
+			for(Ticket t:tickets) {
+				resultado += t.toString() + "\n";				
+			}
+			
+//			tickets.stream().forEach(v -> System.out.println(v));
 		} else {
 			System.out.println("No n'hi ha compres anteriors.");
 		}
+		return resultado;
 	}
 
 	/**
