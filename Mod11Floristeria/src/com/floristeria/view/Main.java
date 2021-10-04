@@ -1,4 +1,4 @@
-package com.floristeria.model.view;
+package com.floristeria.view;
 
 import java.util.List;
 import java.util.Scanner;

@@ -14,7 +14,6 @@ import javax.swing.JLabel;
 import com.floristeria.model.domain.Arbre;
 import com.floristeria.model.domain.Decoracion;
 import com.floristeria.model.domain.Flor;
-import com.floristeria.model.domain.InterfazFuncional;
 import com.floristeria.model.domain.Producte;
 import com.floristeria.model.domain.TipusMaterial;
 import com.floristeria.model.persistance.ProductesRepository;
@@ -79,10 +78,15 @@ public class ProductesController {
 	/**
 	 * - Mostrem tots el productes per pantalla
 	 */
-	public void mostraStockPerPantalla() {
+	public String mostraStockPerPantalla() {
 		List<Producte> productes = productesRepository.getAllProductes();		
-		productes.stream().forEach(v->System.out.println(v));
+//		productes.stream().forEach(v->System.out.println(v));
 //		productes.stream().forEach(System.out::println);
+		String resultat = "";//					
+		for (Producte m : productes) {
+			resultat += m.toString() + "\n";
+		}
+		return resultat;
 	}
 	
 	// ###########################	
@@ -190,17 +194,12 @@ public class ProductesController {
 	 * [CFV] Versió que retorna un String amb tots els productes 
 	 */
 	public String obtenirStock_toString() {
-		String resultat = "";
-		
-		List<Producte> productes = productesRepository.getAllProductes();
-		
+		String resultat = "";		
+		List<Producte> productes = productesRepository.getAllProductes();		
 		for (Producte m : productes) {
 			resultat += m.toString()+ "\n";
 		}
 		return resultat;
-		
-
-
 	}
 	
 
