@@ -9,7 +9,6 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-
 import com.floristeria.controller.ProductesController;
 import com.floristeria.model.domain.Floristeria;
 import com.floristeria.model.domain.Producte;
@@ -259,23 +258,35 @@ public class ViewBotons extends JPanel {
 				else
 					tipusProducte = "Decoració";
 
-				
-				int id = this.getIdProducte(tipusProducte);
-				Producte p = this.productesController.buscaProductePerIdProducte(id);
-
-				// Confirmació de que vols eliminar el producte
-				if (this.IsthisProducte(p.getIdProducte())) {
-					this.productesController.borraProducte(p.getIdProducte());
-					
-					System.out.println("S'ha borrat del ID producte " + p.getIdProducte());
-					viewInfo.setTextLabel("S'ha borrat del ID producte " + p.toString());
-				} else {
-					System.out.println("S'ha cancel.lat el borrat del ID producte " + p.getIdProducte());
-					viewInfo.setTextLabel("S'ha cancel.lat el borrat del ID producte " + p.getIdProducte());
+				int id = 0;
+				Producte p = null;
+				boolean producteTrobat = false;
+				try {
+					id = this.getIdProducte(tipusProducte);
+					p = this.productesController.buscaProductePerIdProducte(id);
+					if (p!=null) 
+					producteTrobat = true;
+					else
+						viewInfo.setTextLabel("No existeix el Producte amb el ID " + id);
+				} catch (Exception e2) {
+					System.out.println("No existeix el Producte amb el ID " + id);
+					viewInfo.setTextLabel("No existeix el Producte amb el ID " + id);
 				}
-				// Tant es faci com no es mostra el Stock per pantalla
-				viewInfo.setTextInfoProducte(this.productesController.mostraStockPerPantalla());
 
+				if (producteTrobat) {
+					// Confirmació de que vols eliminar el producte
+					if (this.IsthisProducte(p.getIdProducte())) {
+						this.productesController.borraProducte(p.getIdProducte());
+
+						System.out.println("S'ha borrat del ID producte " + p.getIdProducte());
+						viewInfo.setTextLabel("S'ha borrat del ID producte " + p.toString());
+					} else {
+						System.out.println("S'ha cancel.lat el borrat del ID producte " + p.getIdProducte());
+						viewInfo.setTextLabel("S'ha cancel.lat el borrat del ID producte " + p.getIdProducte());
+					}
+					// Tant es faci com no es mostra el Stock per pantalla
+					viewInfo.setTextInfoProducte(this.productesController.mostraStockPerPantalla());
+				}
 			} catch (Exception e1) {
 				viewInfo.setTextLabelError("Error " + e1.getMessage());
 			}
