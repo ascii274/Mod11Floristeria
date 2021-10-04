@@ -28,12 +28,12 @@ public class TicketController {
 
 	}
 
-	// cridem Stock controller per visualitzar stock.
-	public void mostrarProductes() {
+	// cridem Stock controller per visualitzar stock.	
+	
+	public String mostrarProductes() {
 		productesController = new ProductesController();
-		productesController.mostraStockPerPantalla();
+		return productesController.mostraStockPerPantalla();
 	}
-
 	
 	/**
 	 * -Retorna les dades del ticket -Si ho faig amb un return de un for, surt tot
