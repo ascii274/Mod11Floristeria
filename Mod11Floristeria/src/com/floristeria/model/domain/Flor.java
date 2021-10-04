@@ -1,11 +1,16 @@
 package com.floristeria.model.domain;
 
-public class Flor extends Productes {
+public class Flor extends Producte {
+	private  int idProducte;
 	private String color;
+	
+	
 
-	public Flor(double preu, String color) {
-		super(preu);
+	public Flor(double preu, String color, int stock) {
+		super(preu , stock);
+		this.idProducte = super.getIdProducte();
 		this.color = color;
+		
 	}
 
 	public String getColor() {
@@ -16,11 +21,13 @@ public class Flor extends Productes {
 		this.color = color;
 	}
 	
+	
 	/**
 	 * Mostra les dades de la flor
 	 */
 	public String toString() {
-		return "Flor [ Color:" + color + " , preu:" + super.getPreu() + " euros]";
+		return "Flor [ID: " + idProducte + " ,Color:" + color + " ,Preu:" 
+							+ super.getPreu() + " euros, Stock:" +super.getStock() + "]";
 	}
 	
 	

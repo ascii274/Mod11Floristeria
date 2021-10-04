@@ -3,23 +3,22 @@ package com.floristeria.model.persistance;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.floristeria.model.domain.Productes;
+import com.floristeria.model.domain.Producte;
 
 public class ProductesRepository {
-	private List<Productes> productes = new ArrayList<Productes>();
+	private static List<Producte> productes = new ArrayList<Producte>();// para que acceder desde ticketCotnroller
 	
 	public ProductesRepository() {
 		
 	}
 	
-	public List<Productes> getAllProductes(){
+	public List<Producte> getAllProductes(){
 		return new ArrayList<>(productes);
 	}
 	
-	public void addProductes(Productes producte) throws Exception{
+	public void addProductes(Producte producte) throws Exception{
 		if(producte==null) throw new Exception();
-		productes.add(producte);
-		
+		productes.add(producte);		
 	}
 
 }
