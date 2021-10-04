@@ -84,10 +84,12 @@ public class ProductesController {
 //		productes.stream().forEach(System.out::println);
 		String resultat = "";//					
 		for (Producte m : productes) {
-			resultat += m.toString() + "\n";
+			resultat += m.toStringSenseStock() + "\n";
 		}
 		return resultat;
 	}
+	
+	
 	
 	// ###########################	
 	// #  Fi Nivell 1
@@ -143,28 +145,6 @@ public class ProductesController {
 		return resultat;		
 	}
 	
-	/**
-	 * - Printar per pantalla valor total de la floristeria. 
-	 * @return
-	 */
-	public double mostraValorTotalFlristeria() {
-		List<Producte> productes = productesRepository.getAllProductes();
-		double resultat =0;
-		for(Producte p:productes) {
-			resultat += p.getPreu() * p.getStock();			
-		}
-		return resultat;
-		//return productes.stream().mapToInt(Producte::getStock).sum(); // solo suma
-	}	
-	
-	
-	
-	
-	// pintar per pantalla stock i quantitats	
-	
-	// mostra la quantitat d'estoc que hi a l'array. 
-	
-	
 	
 	/**
 	 * - Printar per pantalla valor total de la floristeria. 
@@ -172,11 +152,12 @@ public class ProductesController {
 	 */
 	public double mostraValorTotalFloristeria() {
 		List<Producte> productes = productesRepository.getAllProductes();
-		double resultat =0;
-		for(Producte p:productes) {
-			resultat += p.getPreu() * p.getStock();			
-		}
-		return resultat;		
+		return productes.stream().mapToDouble(v -> v.getPreu()*v.getStock() ) .sum();
+//		double resultat =0;
+//		for(Producte p:productes) {
+//			resultat += p.getPreu() * p.getStock();			
+//		}
+//		return resultat;		
 	}
 	
 	// ###########################	

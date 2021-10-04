@@ -42,43 +42,5 @@ public class Main {
 
 	}
 	
-//	public static void crearTicket() throws Exception {
-//		// ticket
-//		System.out.println("****** Creant Ticket ******");		
-//		ticketController.creaTicket();// constructor
-//		ticketController.mostrarProductes();// mostra tots el productes
-//		ticketController.seleccioniProducte(); // 
-//		System.out.println("******  La seva compra *****");
-//		System.out.println(ticketController.mostraContigutTicket());		
-//	}
-	
-	
-	/**
-	 * - Opc 1: crea ticket 
-	 * - Opc 2: veuere tickets antigues
-	 * @param opc
-	 */
-//	public static void selectOpcionCreaTickeVeureTicket(int opc) {
-//		switch (opc) {
-//		case 1:
-//			try {
-//				crearTicket();
-//			} catch (Exception e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//			break;
-//		case 2:
-//			ticketController.mostrarTicketsAnteriors();
-//			break;
-//		case 3:
-//			System.out.println("Total diners guanyats: " + ticketController.mostraDinersGuanyatAmbVentes());
-//			break;
-//
-//		default:
-//			System.out.println("Només opcions del  1 al 2");
-//			break;
-//		}
-//	}
 
 }

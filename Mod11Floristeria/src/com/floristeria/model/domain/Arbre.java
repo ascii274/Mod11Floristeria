@@ -26,4 +26,11 @@ public class Arbre extends Producte {
 		return "Arbre [ID:" + idProducte + " ,Alçada:" + alzada + " cm, Preu:" 
 						+ super.getPreu() + " euros, Stock:" + super.getStock() + "]";
 	}
+	
+	@Override
+	// retorna string sense stock per el tickets
+	public String toStringSenseStock() {
+		return "Arbre [ID:" + idProducte + " ,Alçada:" + alzada + " cm, Preu: " + + super.getPreu();
+	}
+	
 }

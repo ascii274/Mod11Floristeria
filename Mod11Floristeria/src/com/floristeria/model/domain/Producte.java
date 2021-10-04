@@ -29,4 +29,8 @@ public class Producte {
 	public int getStock() {
 		return stock;
 	}
+	public String toStringSenseStock() {
+		return "Id:" + idProducte;
+	}
+	
 }

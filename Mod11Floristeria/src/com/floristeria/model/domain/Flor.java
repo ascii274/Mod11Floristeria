@@ -30,5 +30,13 @@ public class Flor extends Producte {
 							+ super.getPreu() + " euros, Stock:" +super.getStock() + "]";
 	}
 	
+	@Override
+	// retorna string sense stock per el tickets
+	public String toStringSenseStock() {
+		return "Flor [ID: " + idProducte + " ,Color:" + color + " ,Preu:" 
+				+ super.getPreu() + " euros";
+	}
+	
+	
 	
 }
