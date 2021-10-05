@@ -4,12 +4,14 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Objects;
 
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import com.floristeria.controller.ProductesController;
+import com.floristeria.controller.TicketController;
 import com.floristeria.model.domain.Floristeria;
 import com.floristeria.model.domain.Producte;
 import com.floristeria.model.domain.TipusMaterial;
@@ -17,26 +19,34 @@ import com.floristeria.model.domain.TipusMaterial;
 public class ViewBotons extends JPanel {
 
 	// Creem els botons per interactuar amb el Coet
-	JButton addArbre = new JButton("Afegir Arbre");
-	JButton addFlor = new JButton("Afegir Flor");
-	JButton addDecoracio = new JButton("Afegir Decoració");
-	JButton printStock = new JButton("Imprimir Stock");
+	JButton addArbre = new JButton("+ Arbre");
+	JButton addFlor = new JButton("+ Flor");
+	JButton addDecoracio = new JButton("+ Decoració");
+	JButton printStock = new JButton("Imp. Stock");
 
 	// ***** Botons Nivell 2 *****
-	JButton removeArbre = new JButton("Retirar Arbre");
-	JButton removeFlor = new JButton("Retirar Flor");
-	JButton removeDecoració = new JButton("Retirar Decoració");
-	JButton printStockQuantitats = new JButton("Imprimir Stock amb quantitats");
-	JButton printSumTotal = new JButton("Imprimir valor total Floristeria");
+	JButton removeArbre = new JButton("- Arbre");
+	JButton removeFlor = new JButton("- Flor");
+	JButton removeDecoració = new JButton("- Decoració");
+	JButton printStockQuantitats = new JButton("Imp. Stock Quantitats");
+	JButton printSumTotal = new JButton("Imp. Total Floristeria");
+
+	// ***** Botons Nivell 3 ******
+	JButton crearTicket = new JButton("+ Ticket");
+	JButton printOldTickets = new JButton("Imp. Ticket Antics");
+	JButton printSumDinersTickets = new JButton("Imp. Sum Ventes");
 
 	Floristeria floristeria;
 	ProductesController productesController;
+	TicketController ticketController;
 	ViewInfo viewInfo;
 	Utilities u;
 
-	public ViewBotons(Floristeria floristeria, ProductesController productesController, ViewInfo viewInfo) {
+	public ViewBotons(Floristeria floristeria, ProductesController productesController,
+			TicketController ticketController, ViewInfo viewInfo) {
 		this.floristeria = floristeria;
 		this.productesController = productesController;
+		this.ticketController = ticketController;
 		this.viewInfo = viewInfo;
 
 		this.u = new Utilities();
@@ -45,7 +55,7 @@ public class ViewBotons extends JPanel {
 		addArbre.setEnabled(true);
 		addFlor.setEnabled(true);
 		addDecoracio.setEnabled(true);
-		printStock.setEnabled(false);
+		printStock.setEnabled(true);
 
 		// ***** Botons Nivell 2 *****
 		removeArbre.setEnabled(true);
@@ -53,6 +63,8 @@ public class ViewBotons extends JPanel {
 		removeDecoració.setEnabled(true);
 		printStockQuantitats.setEnabled(true);
 		printSumTotal.setEnabled(true);
+
+		// ***** Botons Nivell 3 ******
 
 		setBackground(Color.WHITE);
 		Font miFuente = new Font("Arial", Font.BOLD, 16);
@@ -146,6 +158,31 @@ public class ViewBotons extends JPanel {
 		});
 		printSumTotal.setBounds(430, 40, 100, 40);
 
+		// ***** Botons Nivell 3 ******
+		// Crear tickets de compra amb multiples objectes
+		crearTicket.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				accionBotones(e);
+			}
+		});
+
+		// Mostrar una llista de compres antigues
+		printOldTickets.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				accionBotones(e);
+			}
+		});
+
+		// Visualitzar el total de diners guanyats amb totes les ventes
+		printSumDinersTickets.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				accionBotones(e);
+			}
+		});
+
 		/*******************************************************************************/
 
 		add(addArbre);
@@ -159,6 +196,11 @@ public class ViewBotons extends JPanel {
 		add(removeDecoració);
 		add(printStockQuantitats);
 		add(printSumTotal);
+
+		// ***** Botons Nivell 3 ******
+		add(crearTicket);
+		add(printOldTickets);
+		add(printSumDinersTickets);
 
 		setVisible(true);
 	}
@@ -264,8 +306,8 @@ public class ViewBotons extends JPanel {
 				try {
 					id = this.getIdProducte(tipusProducte);
 					p = this.productesController.buscaProductePerIdProducte(id);
-					if (p!=null) 
-					producteTrobat = true;
+					if (p != null)
+						producteTrobat = true;
 					else
 						viewInfo.setTextLabel("No existeix el Producte amb el ID " + id);
 				} catch (Exception e2) {
@@ -324,6 +366,54 @@ public class ViewBotons extends JPanel {
 			}
 		}
 
+		// ***** Botons Nivell 3 ******
+		if (e.getSource() == crearTicket) {
+			try {
+				// per si un cas netegem el text error
+				viewInfo.setTextLabelError("");
+
+				ticketController.creaTicket();// constructor
+				// Mostrem tots els productes del Stock per saber que comprar
+				viewInfo.setTextInfoProducte(this.productesController.mostraStockPerPantalla());
+
+				SeleccionarProductes();
+
+				viewInfo.setTextLabel("******  La seva compra *****");
+				viewInfo.setTextInfoTicket(this.ticketController.mostraContigutTicket());
+			} catch (Exception e1) {
+				viewInfo.setTextLabelError("Error " + e1.getMessage());
+			}
+		}
+		
+		
+		// Mostrar una llista de compres antigues
+		if (e.getSource() == printOldTickets) {
+			try {
+				// per si un cas netegem el text error
+				viewInfo.setTextLabelError("");
+
+				System.out.println("Mostrar una llista de compres antigues");
+				viewInfo.setTextLabel("Mostrar una llista de compres antigues");
+				viewInfo.setTextInfoTicket(ticketController.mostrarTicketsAnteriors());
+			} catch (Exception e1) {
+				viewInfo.setTextLabelError("Error " + e1.getMessage());
+			}
+		}
+
+		//Visualitzar el total de diners guanyats amb totes les ventes
+		if (e.getSource() == printSumDinersTickets) {
+			try {
+				// per si un cas netegem el text error
+				viewInfo.setTextLabelError("");
+
+				System.out.println("Visualitzar el total de diners guanyats amb totes les ventes");
+				viewInfo.setTextLabel("Visualitzar el total de diners guanyats amb totes les ventes");
+				viewInfo.setTextInfoTicket("El total de diners guanyat són: "+ String.valueOf(ticketController.mostraDinersGuanyatAmbVentes()));
+			} catch (Exception e1) {
+				viewInfo.setTextLabelError("Error " + e1.getMessage());
+			}
+		}		
+		
 	}
 
 	/**
@@ -376,7 +466,7 @@ public class ViewBotons extends JPanel {
 	 * 
 	 * @return int Alçada Arbre
 	 */
-	public int getAlzada() {
+	private int getAlzada() {
 		int resultat = 0;
 		String message = "Introdueix l'Alçada del Arbre: " + "\n";
 		boolean isOk = false;
@@ -461,6 +551,45 @@ public class ViewBotons extends JPanel {
 			return true;
 		else
 			return false;
+	}
+
+	
+	//Mètode per comprar productes i omplir el ticket
+	private void SeleccionarProductes() {
+		Producte producte;
+		int codigoProducto;
+		boolean continuarComprant = false;
+		
+		
+		do {
+			String message = "Introdueix el identificadr de producte  que vols comprar: ";
+			String preResultat = u.getUserInput(message);
+
+			if (u.isNumeric(preResultat)) {
+				codigoProducto = Integer.parseInt(preResultat);
+				// Busquem el producte per ID
+				producte = this.productesController.buscaProductePerIdProducte(codigoProducto);
+				if (!Objects.isNull(producte)) {
+					
+					try {
+						this.ticketController.afegirProducte(producte);
+					} catch (Exception e) {
+						viewInfo.setTextLabelError("Error " + e.getMessage());
+					}
+
+					message = "¿Vols comprar un altre producte?";
+					int confirmado = JOptionPane.showConfirmDialog(null, message);
+					if (JOptionPane.OK_OPTION == confirmado)
+						continuarComprant = true;
+					else
+						continuarComprant = false;
+				}
+			} else {
+				message = "Error. El valor introduit ha de ser numèric \n" + message;
+			}
+
+		} while (continuarComprant);
+
 	}
 
 }

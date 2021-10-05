@@ -22,7 +22,8 @@ public class ViewInfo extends javax.swing.JPanel {
 	private JLabel infoFromBotons;
 	private JLabel infoFromBotonsError;
 
-	public JTextArea infoProducte;
+	private JTextArea infoProducte;
+	private JTextArea infoTicket;
 
 	public ViewInfo(Floristeria floristeria, ProductesController productesController) {
 		this.floristeria = floristeria;
@@ -51,9 +52,16 @@ public class ViewInfo extends javax.swing.JPanel {
 		infoProducte = new JTextArea("Impresio Stocks", 10, 0);
 		infoProducte.setFont(miFuente);
 		infoProducte.setForeground(Color.BLACK);
-		infoProducte.setBounds(20, 100, 1250, 340);
+		infoProducte.setBounds(20, 100, 625, 340);
 		this.add(infoProducte);
 
+		// Creem un camp Texte Multilinia per imprimir els Tickets
+		infoTicket = new JTextArea("Impresio Tickets", 10, 0);
+		infoTicket.setFont(miFuente);
+		infoTicket.setForeground(Color.BLACK);
+		infoTicket.setBounds(625+40, 100, 625, 340);
+		this.add(infoTicket);
+		
 		// Creem un lable per mostrar els erors
 		infoFromBotonsError = new JLabel("Text error", SwingConstants.CENTER);
 		infoFromBotonsError.setFont(miFuente);
@@ -92,12 +100,12 @@ public class ViewInfo extends javax.swing.JPanel {
 		infoFromBotonsError.setText(text);
 	}
 
-	// Bloc de métodes per el text gran que informarem desde view botons
+	// Bloc de métodes per el text gran que informarem desde view botons referent al Stock
 	public JTextArea getinfo() {
 		return infoProducte;
 	}
 
-	public void setLabelGran(JTextArea text) {
+	public void setTextGran(JTextArea text) {
 		this.infoProducte = text;
 	}
 
@@ -105,4 +113,17 @@ public class ViewInfo extends javax.swing.JPanel {
 		infoProducte.setText(text);
 	}
 
+	
+	// Bloc de métodes per el text gran que informarem desde view botons referent al Ticket
+	public JTextArea getinfoTicket() {
+		return infoTicket;
+	}
+
+	public void setTextGranTicket(JTextArea text) {
+		this.infoTicket = text;
+	}
+
+	public void setTextInfoTicket(String text) {
+		infoTicket.setText(text);
+	}
 }
