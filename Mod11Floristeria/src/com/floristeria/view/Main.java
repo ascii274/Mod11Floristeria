@@ -17,7 +17,7 @@ public class Main {
 		Floristeria floristeria;
 		try {
 			// alta floristeria			
-			floristeria = new Floristeria("Floristeria Java");
+			//floristeria = new Floristeria("Floristeria Java");
 			// alta floristeria per InputDialog
 			floristeria = crearFloristeria("Floristeria Java");
 			System.out.println(floristeria.toString());

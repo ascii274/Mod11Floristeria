@@ -31,42 +31,42 @@ public class ViewInfo extends javax.swing.JPanel {
 
 		this.u = new Utilities();
 
-		Font miFuente = new Font("Arial", Font.BOLD, 20);
+		Font miFuente = new Font("Arial", Font.BOLD, 16);
 		this.setLayout(null);
 
 		// Creem la label/columna del noms de propulsors
 		JLabel nomFloristeria = new JLabel("" + floristeria.toString(), SwingConstants.CENTER);
 		nomFloristeria.setFont(miFuente);
 		nomFloristeria.setForeground(Color.BLACK);
-		nomFloristeria.setBounds(20, 10, 1250, 50);
+		nomFloristeria.setBounds(20, 10, 1150, 50);
 		this.add(nomFloristeria);
 
 		// Creem un label per simular el System.out.println() explican que hem fet
 		infoFromBotons = new JLabel("Text From botons curt", SwingConstants.LEFT);
 		infoFromBotons.setFont(miFuente);
 		infoFromBotons.setForeground(Color.BLUE);
-		infoFromBotons.setBounds(20, 40, 1250, 50);
+		infoFromBotons.setBounds(20, 40, 1150, 50);
 		this.add(infoFromBotons);
 
 		// Creem un camp Texte Multilinia per imprimir el Stock
 		infoProducte = new JTextArea("Impresio Stocks", 10, 0);
 		infoProducte.setFont(miFuente);
 		infoProducte.setForeground(Color.BLACK);
-		infoProducte.setBounds(20, 100, 625, 340);
+		infoProducte.setBounds(20, 100, 550, 340);
 		this.add(infoProducte);
 
 		// Creem un camp Texte Multilinia per imprimir els Tickets
 		infoTicket = new JTextArea("Impresio Tickets", 10, 0);
 		infoTicket.setFont(miFuente);
 		infoTicket.setForeground(Color.BLACK);
-		infoTicket.setBounds(625+40, 100, 625, 340);
+		infoTicket.setBounds(550+40, 100, 550, 340);
 		this.add(infoTicket);
 		
 		// Creem un lable per mostrar els erors
 		infoFromBotonsError = new JLabel("Text error", SwingConstants.CENTER);
 		infoFromBotonsError.setFont(miFuente);
 		infoFromBotonsError.setForeground(Color.RED);
-		infoFromBotonsError.setBounds(20, 450, 1250, 50);
+		infoFromBotonsError.setBounds(20, 450, 1150, 50);
 		this.add(infoFromBotonsError);
 
 		// fem visible el marc

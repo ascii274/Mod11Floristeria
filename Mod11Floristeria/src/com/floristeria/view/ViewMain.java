@@ -1,6 +1,7 @@
 package com.floristeria.view;
 
 import java.awt.BorderLayout;
+import java.awt.GridLayout;
 
 import javax.swing.JFrame;
 
@@ -26,7 +27,7 @@ public class ViewMain extends JFrame {
 			TicketController ticketController) {
 
 		// ********* Disseny del Frame **************
-		this.setBounds(100, 100, 1320, 600);
+		this.setBounds(100, 100, 1180, 600);
 		// posa el frame al centre de la pantalla
 		this.setLocationRelativeTo(null);
 		setTitle("Gestió Floristeria" + floristeria);
@@ -42,6 +43,7 @@ public class ViewMain extends JFrame {
 
 		// Pintem el Panell de botons
 		viewBotons = new ViewBotons(floristeria, productesController, ticketController, viewInfo);
+		viewBotons.setLayout(new GridLayout(2,1));
 		this.getContentPane().add(BorderLayout.SOUTH, viewBotons);
 
 		// ************** Disseny Label i TextFields ************
