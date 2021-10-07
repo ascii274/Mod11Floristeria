@@ -1,0 +1,33 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x00007fb63ac12393, pid=20168, tid=21220
+#
+# JRE version: OpenJDK Runtime Environment (16.0.1+9) (build 16.0.1+9-24)
+# Java VM: OpenJDK 64-Bit Server VM (16.0.1+9-24, mixed mode, tiered, compressed oops, compressed class ptrs, g1 gc, linux-amd64)
+# Problematic frame:
+# C  [libjimage.so+0x4393]  ImageStrings::find(Endian*, char const*, int*, unsigned int)+0x63
+#
+# Core dump will be written. Default location: Core dumps may be processed with "/usr/lib/systemd/systemd-coredump %P %u %g %s %t %c %h" (or dumping to /home/joel/Programacion/Java_ItAcademy/ItAcademyMod11PairProgramming/Mod11Floristeria-master/Mod11Floristeria/core.20168)
+#
+# If you would like to submit a bug report, please visit:
+#   https://bugreport.java.com/bugreport/crash.jsp
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -XX:+ShowCodeDetailsInExceptionMessages -agentlib:jdwp=transport=dt_socket,suspend=y,address=localhost:41095 -javaagent:/opt/eclipse/configuration/org.eclipse.osgi/1038/0/.cp/lib/javaagent-shaded.jar -Dfile.encoding=UTF-8 com.floristeria.view.Main
+
+Host: Intel(R) Core(TM) i5-6400 CPU @ 2.70GHz, 4 cores, 3G, Fedora release 34 (Thirty Four)
+Time: Wed Oct  6 23:07:14 2021 CEST elapsed time: 771.231873 seconds (0d 0h 12m 51s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007fb5c0004510):  JavaThread "XToolkt-Shutdown-Thread" [_thread_in_vm, id=21220, stack(0x00007fb6112ff000,0x00007fb611400000)]
+
+Stack: [0x00007fb6112ff000,0x00007fb611400000],  sp=0x00007fb6113fcfc0,  free space=1015k
+Native frames: (J=compiled Java code, A=aot compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [libjimage.so+0x4393]  ImageStrings::find(Endian*, char const*, int*, unsigned int)+0x63
+C  [libjimage.so+0x50de]  ImageFileReader::find_location_index(char const*, unsigned long long*) const+0x3e
+C  [libjimage.so+0x55bc]  JIMAGE_FindResource+0xfc
+V  [libjvm.so+0x55f051]
