@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 
@@ -59,8 +60,13 @@ public class ViewInfo extends javax.swing.JPanel {
 		infoTicket = new JTextArea("Impresio Tickets", 10, 0);
 		infoTicket.setFont(miFuente);
 		infoTicket.setForeground(Color.BLACK);
-		infoTicket.setBounds(550+40, 100, 550, 340);
-		this.add(infoTicket);
+		//infoTicket.setBounds(550+40, 100, 550, 340);
+		//this.add(infoTicket);
+		JScrollPane scroll = new JScrollPane (infoTicket, 
+				   JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		scroll.setBounds(550+40, 100, 550, 340);
+		this.add(scroll);
+		
 		
 		// Creem un lable per mostrar els erors
 		infoFromBotonsError = new JLabel("Text error", SwingConstants.CENTER);
@@ -69,6 +75,12 @@ public class ViewInfo extends javax.swing.JPanel {
 		infoFromBotonsError.setBounds(20, 450, 1150, 50);
 		this.add(infoFromBotonsError);
 
+		
+		
+		JTextArea textArea = new JTextArea ("Test");
+		
+		
+		
 		// fem visible el marc
 		setVisible(true);
 
