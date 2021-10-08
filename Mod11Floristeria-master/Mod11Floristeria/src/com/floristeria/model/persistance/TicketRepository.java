@@ -14,7 +14,8 @@ public class TicketRepository {
 	}
 	
 	public List<Ticket> getTickets(){
-		return tickets;
+		//return tickets;
+		return new ArrayList<>(tickets);
 	}
 	
 	public void addTicket(Ticket ticket) throws Exception{

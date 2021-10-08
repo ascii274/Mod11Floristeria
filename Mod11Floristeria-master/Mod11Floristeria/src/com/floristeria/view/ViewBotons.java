@@ -561,17 +561,14 @@ public class ViewBotons extends JPanel {
 		Producte producte;
 		int codigoProducto;
 		boolean continuarComprant = false;
-		
-		
 		do {
 			String message = "Introdueix el identificadr de producte  que vols comprar: ";
 			String preResultat = u.getUserInput(message);
-
 			if (u.isNumeric(preResultat)) {
 				codigoProducto = Integer.parseInt(preResultat);
 				// Busquem el producte per ID
 				producte = this.productesController.buscaProductePerIdProducte(codigoProducto);
-				if (!Objects.isNull(producte)) {					
+				if (!Objects.isNull(producte)) {
 					try {
 						this.ticketController.afegirProducte(producte);
 						viewInfo.setTextInfoProducte(this.productesController.mostraStockPerPantalla());
@@ -581,13 +578,13 @@ public class ViewBotons extends JPanel {
 
 					message = "¿Vols comprar un altre producte?";
 					int confirmado = JOptionPane.showConfirmDialog(null, message);
-					if (JOptionPane.OK_OPTION == confirmado)
+					if (JOptionPane.OK_OPTION == confirmado) {
 						continuarComprant = true;
-					else
+					} else {
 						continuarComprant = false;
-					//afegir ticket a tickets
-					ticketController.afegirTicket(ticketController.getTicket());
-						
+						// afegir ticket a tickets
+						ticketController.afegirTicket(ticketController.getTicket());
+					}
 				}
 			} else {
 				message = "Error. El valor introduit ha de ser numèric \n" + message;
